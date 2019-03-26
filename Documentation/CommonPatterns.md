@@ -18,7 +18,7 @@ firstly {
     set($0)
     return animate()
 }.ensure {
-    cleanup()
+    // something that should happen whatever the outcome
 }.catch {
     handle(error: $0)
 }
@@ -129,7 +129,7 @@ avoiding throwing an error because you couldn't be bothered to define a good glo
 `Error` `enum`.
 
 
-## Abstracting Away Asychronicity
+## Abstracting Away Asynchronicity
 
 ```swift
 var fetch = API.fetch()
@@ -146,7 +146,7 @@ func buttonPressed() {
     }
 }
 
-func refresh() {
+func refresh() -> Promise {
     // ensure only one fetch operation happens at a time
 
     if fetch.isResolved {
